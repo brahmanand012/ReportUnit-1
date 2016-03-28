@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ReportUnit;
 using System;
 
 namespace UnitTests
@@ -7,61 +8,145 @@ namespace UnitTests
     public class PersonTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CreatingPersonHasNameSean()
         {
+            // arrange
+            var name = "Sean";
+            var age = 30;
+            var eyeColour = "Blue";
+            var hairColour = "Blonde";
+
+            // act - creating a person testing the constructor
+            Person person = new Person(name, age, eyeColour, hairColour);
+
+            // assert
+            var actual = person.GetName();
+            Assert.AreEqual(name, actual, string.Format("Name: {0} does not equal {1}", name, actual));
         }
 
         [TestMethod]
-        public void TestMethod2()
+        public void CreatingPersonHasAge30()
         {
+            // arrange
+            var name = "Sean";
+            var age = 30;
+            var eyeColour = "Blue";
+            var hairColour = "Blonde";
+
+            // act - creating a person testing the constructor
+            Person person = new Person(name, age, eyeColour, hairColour);
+
+            // assert
+            var actual = person.GetAge();
+            Assert.AreEqual(age, actual, string.Format("Age: {0} does not equal {1}", age, actual));
         }
 
         [TestMethod]
-        public void TestMethod3()
+        public void CreatingPersonHasBlondeHair()
         {
+            // arrange
+            var name = "Sean";
+            var age = 30;
+            var eyeColour = "Blue";
+            var hairColour = "Blonde";
+
+            // act - creating a person testing the constructor
+            Person person = new Person(name, age, eyeColour, hairColour);
+
+            // assert
+            var actual = person.GetHairColour();
+            Assert.AreEqual(hairColour, actual, string.Format("Hair Colour: {0} does not equal {1}", hairColour, actual));
         }
 
         [TestMethod]
-        public void TestMethod4()
+        public void CreatingPersonHasBlueEyes()
         {
+            // arrange
+            var name = "Sean";
+            var age = 30;
+            var eyeColour = "Blue";
+            var hairColour = "Blonde";
+
+            // act - creating a person testing the constructor
+            Person person = new Person(name, age, eyeColour, hairColour);
+
+            // assert
+            var actual = person.GetEyeColour();
+            Assert.AreEqual(eyeColour, actual, string.Format("Eye: {0} does not equal {1}", eyeColour, actual));
         }
 
         [TestMethod]
-        public void TestMethod5()
+        public void Failure_AgeDoesntMatch()
         {
+            // arrange
+            var name = "Sean";
+            var age = 30;
+            var eyeColour = "Blue";
+            var hairColour = "Blonde";
+
+            // act - creating a person testing the constructor
+            Person person = new Person(name, age, eyeColour, hairColour);
+
+            // assert
+            var actual = person.GetAge();
+            Assert.AreEqual(35, actual, string.Format("Age: {0} does not equal {1}", 35, actual));
         }
 
         [Ignore]
         [TestMethod]
-        public void TestMethod6()
+        public void Ignored_NotYetImplemented()
         {
         }
 
         [TestMethod]
-        public void TestMethod7()
+        public void Failure_HairColourDoesntMatch()
         {
-            Assert.AreEqual("Test", "Fail");
+            // arrange
+            var name = "Sean";
+            var age = 30;
+            var eyeColour = "Blue";
+            var hairColour = "Blonde";
+
+            // act - creating a person testing the constructor
+            Person person = new Person(name, age, eyeColour, hairColour);
+
+            // assert
+            var actual = person.GetHairColour();
+            Assert.AreEqual("Black", actual, string.Format("Hair Colour: {0} does not equal {1}", "Black", actual));
         }
 
         [TestMethod]
-        public void TestMethod8()
+        public void Failure_EyeColourDoesntMatch()
         {
-            Assert.AreEqual("Test", "Fail");
+            // arrange
+            var name = "Sean";
+            var age = 30;
+            var eyeColour = "Blue";
+            var hairColour = "Blonde";
+
+            // act - creating a person testing the constructor
+            Person person = new Person(name, age, eyeColour, hairColour);
+
+            // assert
+            var actual = person.GetEyeColour();
+            Assert.AreEqual("Green", actual, string.Format("Eye: {0} does not equal {1}", "Green", actual));
         }
 
         [TestMethod]
-        public void TestMethod9()
+        public void Failure_NameDoesntMatch()
         {
-            Assert.AreEqual("Test", "Fail");
+            // arrange
+            var name = "Sean";
+            var age = 30;
+            var eyeColour = "Blue";
+            var hairColour = "Blonde";
 
-        }
+            // act - creating a person testing the constructor
+            Person person = new Person(name, age, eyeColour, hairColour);
 
-
-        [ClassCleanup()]
-        public static void ReportUnit()
-        {
-
-            System.Console.WriteLine("Test");
+            // assert
+            var actual = person.GetName();
+            Assert.AreEqual("Bob", actual, string.Format("Name: {0} does not equal {1}", "Bob", actual));
         }
     }
 }
